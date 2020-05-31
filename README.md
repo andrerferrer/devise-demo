@@ -74,6 +74,33 @@ class PagesController < ApplicationController
 end
 ```
 
+## Adding attributes to the user
+
+If we want to add a nickname to the user, what should we do?
+
+1. Generate and run the migration
+```
+rails g migration AddNicknameToUsers nickname:string
+rails db:migrate
+```
+
+2. Make devise handle it in the ApplicationController
+Add this to you `app/controllers/application_controller.rb`.
+
+```ruby
+# Config devise params if we have a devise controller running
+before_action :config_devise_params, if: :devise_controller?
+
+protected
+
+def config_devise_params
+  # This allows nickname to be added to the sign up
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+  # This allows nickname to be added to the editting of the account
+  devise_parameter_sanitizer.permit(:account_update, keys: [:nickname])
+end
+```
+
 ## Tips and Tricks
 
 * You can check if a user is logged in with `user_signed_in?`

@@ -1,3 +1,6 @@
+## Goal
+This is an app to teach how to implement basic Authentication in Rails using the [devise gem](https://github.com/heartcombo/devise).
+
 ## Setup
 
 ### Add devise gem

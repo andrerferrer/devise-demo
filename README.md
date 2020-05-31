@@ -46,3 +46,8 @@ Some setup you must do manually if you haven't yet:
 ```ruby
 rails generate devise User
 ```
+
+## Tips and Tricks
+
+* You can check if a user is logged in with `user_signed_in?`
+* You can retrieve the user that is logged in with `current_user`

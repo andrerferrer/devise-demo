@@ -47,6 +47,17 @@ Some setup you must do manually if you haven't yet:
 rails generate devise User
 ```
 
+### Add some navigation for the user
+```
+<% if user_signed_in? %>
+  <%= link_to "Edit my account", edit_user_registration_path  %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Log In", new_user_session_path %>
+  <%= link_to "Sign up", new_user_registration_path %>
+<% end %>
+```
+
 ## Tips and Tricks
 
 * You can check if a user is logged in with `user_signed_in?`

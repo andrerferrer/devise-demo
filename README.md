@@ -41,3 +41,8 @@ Some setup you must do manually if you haven't yet:
        rails g devise:views
 
 ```
+
+### Generate the user (or whatever) model that will use Devise
+```ruby
+rails generate devise User
+```

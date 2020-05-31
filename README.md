@@ -58,6 +58,22 @@ rails generate devise User
 <% end %>
 ```
 
+### Implement the White-list approach
+
+The white-list approach states that we'll block everything and ONLY allow what we specifically state as allowed.
+
+To do so, all we have to do is to add the `skip` on the right controller.
+
+e.g.
+```ruby
+class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:home]
+
+  def home
+  end
+end
+```
+
 ## Tips and Tricks
 
 * You can check if a user is logged in with `user_signed_in?`
